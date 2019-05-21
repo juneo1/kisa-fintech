@@ -77,9 +77,36 @@ for (var i = 0; i < 9; i++){
     console.log( i * 3);
 }
 
-// while
-while(i < 10){
-    text += "The Number is " + i;
-    i++;
+// if 
+for ( i = 0; i < cars.length; i++) {
+    if (cars[i]== "BMW") {
+        console.log('BMW 차량이 있습니다.');
+    }
+    else {
+        console.log('BMW 차량이 없습니다');
+    }
 }
 
+// 동기 비동기 함수
+var fs = require('fs');
+
+console.log('첫번 째 기능입니다.');
+fs.readFile('example/test.txt', 'utf8', function (err, result) {
+    if (err) {
+        console.error(err);
+        throw err;
+    }
+    else {
+        console.error("두번 째 기능인데 파일을 읽어오느라 시간이.. 조금.. 걸려요");
+        console.log(result);
+    }
+});
+console.log('마지막 기능입니다.');
+
+
+
+var fs = require('fs');
+console.log('A');
+var result  = fs.readFileSync('example/test.txt', 'utf8');
+console.log(result);
+console.log('C');
